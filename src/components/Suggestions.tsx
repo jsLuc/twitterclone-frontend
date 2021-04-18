@@ -3,13 +3,14 @@ import styles from "@/styles/shitposter.module.css";
 
 import { SearchIcon } from "@/components/icons";
 
-import { noticiasdeultimahora as noticias } from "@/hooks/news";
+import { allNews } from "@/constants/news";
 
 const SuggestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
 `;
+
 const SearchBar = styled.div`
   display: flex;
   flex-direction: row;
@@ -24,12 +25,14 @@ const SearchBar = styled.div`
   margin-bottom: 12px;
   margin-top: 12px;
 `;
+
 const Title = styled.div`
   margin: 12px 0px 10px 0px;
   font-size: 20px;
   font-weight: bold;
   padding-left: 20px;
 `;
+
 const Divs = styled.div`
   width: 100%;
   height: 1px;
@@ -37,6 +40,7 @@ const Divs = styled.div`
   margin: 0px;
   background-color: #6e767d44;
 `;
+
 const ShowMore = styled.div`
   cursor: pointer;
   margin: 10px 20px 20px;
@@ -44,6 +48,7 @@ const ShowMore = styled.div`
   font-size: 15px;
   color: #3c86ee;
 `;
+
 const NewsList = styled.ul`
   list-style-type: none;
   display: flex;
@@ -58,6 +63,7 @@ const NewsList = styled.ul`
 
   /* background-color: rgba(29,161,242,1.00); */
 `;
+
 const NewsItem = styled.li``;
 
 const TagsGroup = styled.ul`
@@ -74,7 +80,7 @@ const Tag = styled.li`
   padding: 0px;
   color: #6e767d;
   margin-left: 5px;
-`
+`;
 
 const Suggestions: React.FC = () => {
   return (
@@ -87,25 +93,26 @@ const Suggestions: React.FC = () => {
       <NewsList>
         <Title>O que está acontecendo</Title>
         <Divs />
-        {noticias.map((noticia) => {
-          const indexCount = noticia.tags.length;
-
+        {allNews.map((news) => {
           return (
-            <div className={styles.noticia}>
+            <div key={news.id} className={styles.noticia}>
               <TagsGroup>
-                {noticia.tags.map((tag, index) => {
+                {news.tags.map((tag, index) => {
+                  const isLastTag = news.tags.length - 1 === index;
                   return (
-                    //gambiarra:
-                    <Tag key={`${tag}-${index}`}>
-                      {indexCount - 1 === index ? `${tag}` : `${tag} ·`}
+                    <Tag key={tag.id}>
+                      {tag.name}
+                      {!isLastTag && " ·"}
                     </Tag>
                   );
                 })}
               </TagsGroup>
-              <li key={noticia.titulo} className={styles.noticiatitle}>
-                {noticia.titulo}
+              <li key={news.titulo} className={styles.noticiatitle}>
+                {news.titulo}
               </li>
-              <li key={noticia.desc} className={styles.description}>{noticia.desc}</li>
+              <li key={news.desc} className={styles.description}>
+                {news.desc}
+              </li>
               <Divs />
             </div>
           );

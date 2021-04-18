@@ -8,9 +8,7 @@ const FeedContainer = styled.div`
 `;
 
 const Layout: React.FC = ({ children }) => {
-  return <FeedContainer>
-
-  </FeedContainer>;
+  return <FeedContainer></FeedContainer>;
 };
 
 export default Layout;

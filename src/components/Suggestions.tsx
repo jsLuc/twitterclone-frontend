@@ -8,6 +8,7 @@ const SuggestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
   font-size: 20px;
+  padding-left: 30px;
 `
 
 const SearchBarContainer = styled.div`

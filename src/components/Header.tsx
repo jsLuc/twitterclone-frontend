@@ -7,29 +7,28 @@ import {
   MessageIcon,
   NotificationIcon,
   ProfileIcon,
-  SearchIcon,
   MoreIcon,
   TwitterIcon,
 } from '@/components/icons'
 import { useScreenSize } from '@/hooks/useScreenSize'
 
 const HeaderContainer = styled.header`
-  max-width: 250px;
-`
-
-const TwitterContainer = styled.div`
-  padding: 4px 16px;
-  width: 46px;
-  height: 46px;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
+  width: 100%;
+  max-width: 266px;
 `
 
 const Nav = styled.nav`
-  padding: 0 8px;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
+  padding: 0 12px;
+  gap: 4px;
+
+  @media (min-width: 1280px) {
+    align-items: flex-start;
+    padding: 0 8px;
+    gap: 0px;
+  }
 `
 
 const HeaderItem = styled.a`
@@ -41,58 +40,61 @@ const HeaderItem = styled.a`
 `
 
 const HeaderTitle = styled.p`
+  display: none;
   font-size: 20px;
   font-weight: 700;
+
+  @media (min-width: 1280px) {
+    display: initial;
+  }
 `
 
 export const Header: React.FC = () => {
-  const screenSize = useScreenSize()
-
   return (
     <HeaderContainer>
-      <TwitterContainer>
-        <TwitterIcon />
-      </TwitterContainer>
-
       <Nav>
         <HeaderItem>
+          <TwitterIcon />
+        </HeaderItem>
+
+        <HeaderItem>
           <HomeIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Home</HeaderTitle>}
+          <HeaderTitle>Home</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <ExploreIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Explore</HeaderTitle>}
+          <HeaderTitle>Explore</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <NotificationIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Notifications</HeaderTitle>}
+          <HeaderTitle>Notifications</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <MessageIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Messages</HeaderTitle>}
+          <HeaderTitle>Messages</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <BookmarkIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Bookmarks</HeaderTitle>}
+          <HeaderTitle>Bookmarks</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <ListIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Lists</HeaderTitle>}
+          <HeaderTitle>Lists</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <ProfileIcon />
-          {screenSize !== 'sm' && <HeaderTitle>Profile</HeaderTitle>}
+          <HeaderTitle>Profile</HeaderTitle>
         </HeaderItem>
 
         <HeaderItem>
           <MoreIcon />
-          {screenSize !== 'sm' && <HeaderTitle>More</HeaderTitle>}
+          <HeaderTitle>More</HeaderTitle>
         </HeaderItem>
       </Nav>
     </HeaderContainer>

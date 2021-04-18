@@ -10,7 +10,6 @@ import {
   MoreIcon,
   TwitterIcon,
 } from '@/components/icons'
-import { useScreenSize } from '@/hooks/useScreenSize'
 
 const HeaderContainer = styled.header`
   width: 100%;

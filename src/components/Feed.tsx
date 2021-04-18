@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { useScreenSize } from "@/hooks/useScreenSize";
+import { useScreenSize } from '@/hooks/useScreenSize'
 
 const FeedContainer = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const Layout: React.FC = ({ children }) => {
-  return <FeedContainer></FeedContainer>;
-};
+  return <FeedContainer></FeedContainer>
+}
 
-export default Layout;
+export default Layout

@@ -1,5 +1,5 @@
-import { Reset } from "styled-reset";
-import { createGlobalStyle } from "styled-components";
+import { Reset } from 'styled-reset'
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   html, body, #__next {
@@ -14,7 +14,13 @@ const GlobalStyle = createGlobalStyle`
     
     font-family: 'Roboto', sans-serif;
   }
-`;
+  
+  input {
+    background-color: #15181c;
+    border: 0;
+    color: #d9d9d9;
+  }
+`
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -23,7 +29,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle />
       <Component {...pageProps} />
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

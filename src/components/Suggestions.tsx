@@ -9,12 +9,14 @@ const SuggestionsContainer = styled.div`
   flex-direction: column;
   font-size: 20px;
   padding-left: 30px;
+  padding-right: 30px;
 `
 
 const SearchBarContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 350px;
+  max-width: 350px;
+  width: 100%;
   height: 48px;
 
   background-color: #202327;
@@ -75,7 +77,8 @@ const NewsList = styled.div`
   padding: 0px;
   margin: 0px;
 
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   background-color: #15181c;
   border-radius: 17px;
 

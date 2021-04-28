@@ -1,5 +1,5 @@
-import { Reset } from 'styled-reset'
 import { createGlobalStyle } from 'styled-components'
+import { ChakraProvider } from '@chakra-ui/react'
 
 const GlobalStyle = createGlobalStyle`
   html, body, #__next {
@@ -24,11 +24,10 @@ const GlobalStyle = createGlobalStyle`
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Reset />
+    <ChakraProvider>
       <GlobalStyle />
       <Component {...pageProps} />
-    </>
+    </ChakraProvider>
   )
 }
 

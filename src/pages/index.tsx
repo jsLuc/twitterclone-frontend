@@ -46,7 +46,19 @@ function IndexPage() {
             </Button>
 
             <NextLink href="/login">
-              <Button variant="outline" size="lg">
+              <Button
+                variant="outline"
+                _hover={{
+                  background: 'black',
+                }}
+                _focus={{
+                  background: 'black',
+                }}
+                _active={{
+                  background: 'black',
+                }}
+                size="lg"
+              >
                 Log in
               </Button>
             </NextLink>
